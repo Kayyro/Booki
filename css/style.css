@@ -1,4 +1,13 @@
-/*base*/
+/* =========================
+   Variables & base globale
+   ========================= */
+
+:root {
+    --main-color: #0065FC;
+    --main-bg-color: #F2F2F2;
+    --filter-bg-color: #DEEBFF;
+}
+
 * {
     font-family: 'Raleway', sans-serif; /* Police demandée par Booki */
     box-sizing: border-box;
@@ -6,29 +15,33 @@
 
 body {
     margin: 0;
-    display: flex;
+    display: flex;              /* Centre la page horizontalement */
     justify-content: center;
 }
 
+/* Conteneur principal centré */
 .main-container {
     width: 100%;
     max-width: 1440px;
     padding: 0 50px;
 }
 
-/*header*/
+/* =========================
+   HEADER
+   ========================= */
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 60px;
-    margin-top: 30px;
 }
 
 .logo {
     height: 19px;
 }
 
+/* Menu de navigation */
 .nav-links {
     display: flex;
     list-style-type: none;
@@ -42,7 +55,7 @@ header {
     text-decoration: none;
     color: black;
     padding-top: 30px;
-    border-top: 2px solid transparent;
+    border-top: 2px solid transparent;  /* Bordure visible seulement au hover */
 }
 
 .nav-links a:hover {
@@ -50,11 +63,15 @@ header {
     border-top: 2px solid #0065FC;
 }
 
-/*section recherhce*/
+/* =========================
+   SECTION RECHERCHE
+   ========================= */
+
 .search-and-filter {
     margin-top: 30px;
 }
 
+/* Titre + sous-titre */
 .headline h1 {
     margin-bottom: 8px;
     font-size: 22px;
@@ -65,16 +82,20 @@ header {
     font-size: 16px;
 }
 
-/*formulaire*/
+/* =========================
+   FORMULAIRE DE RECHERCHE
+   ========================= */
+
 .search-form {
     display: inline-flex;
     border: 1px solid #F2F2F2;
     border-radius: 15px;
-    overflow: hidden;
+    overflow: hidden;       /* Pour garder les bords arrondis */
     height: 49px;
     margin-top: 20px;
 }
 
+/* Icône localisation à gauche */
 .search-icon-container {
     background-color: #F2F2F2;
     padding: 0 18px;
@@ -83,6 +104,7 @@ header {
     font-size: 18px;
 }
 
+/* Champ texte */
 .search-input {
     border: none;
     padding: 0 24px;
@@ -92,6 +114,7 @@ header {
     width: 250px;
 }
 
+/* Bouton Rechercher */
 .search-button {
     background-color: #0065FC;
     color: white;
@@ -100,10 +123,246 @@ header {
     font-weight: bold;
     font-size: 18px;
     cursor: pointer;
-    border-radius: 0 15px 15px 0; /*j'arrondie qu'a droite*/
+    border-radius: 0 15px 15px 0; /* j'arrondis qu'à droite */
 }
 
-/*masquer l'icône loupe sur desktop */
+/* Masquer l'icône loupe sur desktop */
 .search-icon-mobile {
     display: none;
+}
+
+/* =========================
+   STYLES GÉNÉRAUX DES CARDS
+   ========================= */
+
+.fa-solid {
+    color: var(--main-color);
+}
+
+.card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px;
+    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1)); /* ombre légère */
+}
+
+.card img {
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 16px;
+}
+
+.euro {
+    font-weight: 700;
+}
+
+.neutral-star {
+    color: var(--main-bg-color);
+}
+
+/* =========================
+   LAYOUT HÉBERGEMENTS + POPULAIRES
+   ========================= */
+
+.hebergements-and-populaires {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px; /* espace avec le formulaire */
+}
+
+/* Les deux sections dans le bloc ont le fond gris et padding */
+.hebergements-and-populaires section {
+    background-color: var(--main-bg-color);
+    border-radius: 20px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/* Section Hébergements (gauche) */
+.hebergements {
+    width: 65%;
+}
+
+/* Section Populaires (droite) */
+.populaires {
+    width: 32%;
+}
+
+/* Titre + icône de la section Populaires */
+.populaires-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Carte horizontale pour les populaires */
+.populaires-cards .card {
+    display: flex;
+    margin-top: 33px;
+}
+
+.populaires-cards img {
+    width: 33%;
+    height: 136px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+/* Contenu texte de la carte populaire */
+.populaires-cards .card-content {
+    width: 67%;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.populaires-cards .card-title {
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+.populaires-cards .card-subtitle {
+    margin: 0;
+}
+
+.populaires-cards .card-rating {
+    margin-bottom: 5px;
+}
+
+/* =========================
+   RESPONSIVE (TABLETTE)
+   ========================= */
+
+@media (max-width: 1024px) {
+    .hebergements-and-populaires {
+        flex-direction: column;  /* Passe en colonne */
+    }
+
+    .hebergements {
+        width: 100%;
+    }
+
+    .populaires {
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    .populaires-cards {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .populaires-cards a {
+        width: 30%;
+    }
+}
+
+/* =========================
+   HÉBERGEMENTS À MARSEILLE
+   ========================= */
+
+/* Espace sous le titre */
+.hebergements .section-title {
+    margin-bottom: 20px;
+}
+
+/* Grille des cartes */
+.hebergements-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* Largeur de chaque lien/carte */
+.hebergements-cards a {
+    width: calc(33.33% - 20px);
+    min-width: 250px; /* sinon c'est trop petit */
+}
+
+/* Cartes verticales */
+.hebergements-cards .card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.hebergements-cards img {
+    height: 124px;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+/* Texte dans les cartes */
+.hebergements-cards .card-content {
+    padding: 10px 15px;
+}
+
+.hebergements-cards .card-title {
+    margin: 5px 0;
+}
+
+.hebergements-cards .card-subtitle {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+}
+
+/* Lien "Afficher plus" sous les cartes */
+.show-more {
+    display: inline-block;
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: 18px;
+}
+/* =========================
+   SECTION FILTRES
+   ========================= */
+
+.filters {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* Permet aux filtres de passer à la ligne sur petit écran */
+}
+
+.filter-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.filter-list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.filter {
+    display: flex;
+    align-items: center;
+    border: 2px solid #D9D9D9;
+    border-radius: 25px;
+    padding: 0 19px;
+    height: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Animation douce pour le hover */
+    font-weight: 700;
+}
+
+/* Espacement entre l'icône et le texte du filtre */
+.filter i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* Effet au survol (Hover) */
+.filter:hover {
+    background-color: var(--filter-bg-color); /* Le bleu clair défini en variable */
 }
