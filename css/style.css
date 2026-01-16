@@ -494,3 +494,133 @@ footer {
 .footer-column a:hover {
     color: var(--main-color);
 }
+
+/* ...existing code... */
+
+/* =========================
+   TABLETTE (<= 1024px)
+   ========================= */
+@media (max-width: 1024px) {
+    body {
+        min-width: 320px;
+    }
+
+    .main-container {
+        padding: 0 30px;
+        max-width: 1440px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        gap: 15px;
+    }
+
+    .nav-links {
+        width: 100%;
+        padding: 0;
+    }
+
+    .nav-links li {
+        margin-left: 0;
+        flex: 1;
+        text-align: center;
+    }
+
+    .hebergements-and-populaires {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .hebergements,
+    .populaires {
+        width: 100%;
+    }
+
+    .hebergements-cards {
+        gap: 20px;
+    }
+
+    .activites-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .card-activite {
+        height: 320px;
+    }
+
+    .card-activite img {
+        height: 260px;
+    }
+
+    footer {
+        gap: 80px;
+        flex-wrap: wrap;
+    }
+}
+
+/* =========================
+   MOBILE (< 768px)
+   ========================= */
+@media (max-width: 768px) {
+    body {
+        min-width: 320px;
+    }
+
+    .main-container {
+        padding: 0 20px;
+    }
+
+    .search-form {
+        width: 100%;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .hebergements-and-populaires section {
+        border-radius: 0;
+        padding: 20px;
+    }
+
+    .hebergements-cards {
+        flex-direction: column;
+    }
+
+    .hebergements-cards a {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .populaires-cards .card {
+        margin-top: 20px;
+    }
+
+    .activites {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .activites-cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .card-activite {
+        height: 260px;
+    }
+
+    .card-activite img {
+        height: 200px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 30px;
+        align-items: flex-start;
+        padding: 30px 20px;
+    }
+}
