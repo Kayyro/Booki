@@ -130,7 +130,7 @@ header {
     background-color: #0065FC;
     color: white;
     border: none;
-    padding: 0 10px 0 14px;      /* pousse légèrement le texte vers la droite sans élargir le bouton */
+    padding: 0 10px 0 10px;      /* pousse légèrement le texte vers la droite sans élargir le bouton */
     font-weight: bold;
     font-size: 18px;
     cursor: pointer;
@@ -143,6 +143,7 @@ header {
 /* Masquer l'icône loupe sur desktop */
 .search-icon-mobile {
     display: none;
+    width: 0;
 }
 
 /* =========================
@@ -186,10 +187,8 @@ header {
     margin-top: 30px;
 }
 
-/* Les deux sections dans le bloc ont le fond gris et padding */
+/* Les deux sections : padding commun, fond uniquement sur Populaires */
 .hebergements-and-populaires section {
-    background-color: var(--main-bg-color);
-    border-radius: 20px;
     padding: 30px;
     box-sizing: border-box;
 }
@@ -197,12 +196,19 @@ header {
 /* Section Hébergements (gauche) */
 .hebergements {
     width: 65%;
+    background-color: transparent;
 }
 
 /* Section Populaires (droite) */
-.populaires {
-    width: 32%;
-}
+    .populaires {
+        background-color: var(--main-bg-color);
+        border-radius: 0;
+        padding: 20px;
+        width: 100%;
+        margin: 0 -20px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
 
 /* Titre + icône de la section Populaires */
 .populaires-title {
@@ -497,6 +503,29 @@ footer {
 
 /* ...existing code... */
 
+/* Les deux sections : padding commun, fond uniquement sur Populaires */
+.hebergements-and-populaires section {
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/* Section Hébergements (gauche) */
+.hebergements {
+    width: 65%;
+    background-color: transparent;
+}
+
+/* Section Populaires (droite) */
+    .populaires {
+        background-color: var(--main-bg-color);
+        border-radius: 0;
+        padding: 20px;
+        width: 100%;
+        margin: 0 -20px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
 /* =========================
    TABLETTE (<= 1024px)
    ========================= */
@@ -573,6 +602,48 @@ footer {
         padding: 0 20px;
     }
 
+    header {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .logo {
+        height: 19px;
+        margin-bottom: 20px;
+    }
+
+    .nav-links {
+        width: 100vw;
+        justify-content: space-between;
+        gap: 0;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links li {
+        margin-left: 0;
+        flex: 1;
+        text-align: center;
+    }
+
+    .nav-links a {
+        padding: 15px 0;
+        border-top: none;
+        border-bottom: 3px solid transparent;
+        display: block;
+        width: 100%;
+    }
+
+    .nav-links a:hover {
+        border-top: none;
+        border-bottom-color: #0065FC;
+    }
+
     .search-form {
         width: 100%;
     }
@@ -581,9 +652,37 @@ footer {
         width: 100%;
     }
 
-    .hebergements-and-populaires section {
+    /* Filtres : 2 colonnes en mobile */
+    .filter-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        max-width: 100%;
+    }
+
+    .filter {
+        justify-content: center;
+    }
+
+    /* Inversion de l'ordre pour le mobile */
+    .hebergements-and-populaires {
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+
+    /* Fond gris uniquement sur Populaires en mobile, sans bord */
+    .hebergements {
+        background-color: transparent;
+        padding: 0;
+    }
+
+    .populaires {
+        background-color: var(--main-bg-color);
         border-radius: 0;
-        padding: 20px;
+        width: calc(100% + 40px);
+        margin-left: -20px;
+        margin-right: -20px;
+        padding: 20px 40px;
     }
 
     .hebergements-cards {
@@ -591,36 +690,23 @@ footer {
     }
 
     .hebergements-cards a {
-        width: 100%;
+        width: 100%; 
         min-width: 0;
     }
-
-    .populaires-cards .card {
-        margin-top: 20px;
-    }
-
-    .activites {
-        margin-top: 40px;
-        margin-bottom: 40px;
-    }
-
     .activites-cards {
+        width: 100%;
         grid-template-columns: 1fr;
         gap: 15px;
     }
 
-    .card-activite {
-        height: 260px;
-    }
-
-    .card-activite img {
-        height: 200px;
-    }
-
     footer {
+        background-color: var(--main-bg-color);
+        width: calc(100% + 40px);
+        margin-left: -20px;
+        margin-right: -20px;
+        padding: 30px 40px;
         flex-direction: column;
         gap: 30px;
-        align-items: flex-start;
-        padding: 30px 20px;
+        margin-top: 60px;
     }
 }
