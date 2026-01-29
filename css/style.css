@@ -1,6 +1,4 @@
-/* =========================
-   Variables & base globale
-   ========================= */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
     --main-color: #0065FC;
@@ -9,7 +7,7 @@
 }
 
 * {
-    font-family: 'Raleway', sans-serif; /* Police demandée par Booki */
+    font-family: "Raleway", sans-serif;
     box-sizing: border-box;
 }
 
@@ -130,7 +128,7 @@ header {
     background-color: #0065FC;
     color: white;
     border: none;
-    padding: 0 10px 0 10px;      /* pousse légèrement le texte vers la droite sans élargir le bouton */
+    padding: 0 10px 0 14px;      /* pousse légèrement le texte vers la droite sans élargir le bouton */
     font-weight: bold;
     font-size: 18px;
     cursor: pointer;
@@ -143,7 +141,6 @@ header {
 /* Masquer l'icône loupe sur desktop */
 .search-icon-mobile {
     display: none;
-    width: 0;
 }
 
 /* =========================
@@ -187,8 +184,10 @@ header {
     margin-top: 30px;
 }
 
-/* Les deux sections : padding commun, fond uniquement sur Populaires */
+/* Les deux sections dans le bloc ont le fond gris et padding */
 .hebergements-and-populaires section {
+    background-color: var(--main-bg-color);
+    border-radius: 20px;
     padding: 30px;
     box-sizing: border-box;
 }
@@ -196,19 +195,12 @@ header {
 /* Section Hébergements (gauche) */
 .hebergements {
     width: 65%;
-    background-color: transparent;
 }
 
 /* Section Populaires (droite) */
-    .populaires {
-        background-color: var(--main-bg-color);
-        border-radius: 0;
-        padding: 20px;
-        width: 100%;
-        margin: 0 -20px;
-        padding-left: 40px;
-        padding-right: 40px;
-    }
+.populaires {
+    width: 32%;
+}
 
 /* Titre + icône de la section Populaires */
 .populaires-title {
@@ -316,6 +308,7 @@ header {
 .show-more:hover {
     color: var(--main-color);
 }
+
 
 /* =========================
    SECTION FILTRES
@@ -501,31 +494,6 @@ footer {
     color: var(--main-color);
 }
 
-/* ...existing code... */
-
-/* Les deux sections : padding commun, fond uniquement sur Populaires */
-.hebergements-and-populaires section {
-    padding: 30px;
-    box-sizing: border-box;
-}
-
-/* Section Hébergements (gauche) */
-.hebergements {
-    width: 65%;
-    background-color: transparent;
-}
-
-/* Section Populaires (droite) */
-    .populaires {
-        background-color: var(--main-bg-color);
-        border-radius: 0;
-        padding: 20px;
-        width: 100%;
-        margin: 0 -20px;
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-
 /* =========================
    TABLETTE (<= 1024px)
    ========================= */
@@ -670,10 +638,12 @@ footer {
         gap: 20px;
     }
 
-    /* Fond gris uniquement sur Populaires en mobile, sans bord */
+    /* Fond gris uniquement sur Populaires en mobile, pleine largeur */
     .hebergements {
         background-color: transparent;
         padding: 0;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .populaires {
@@ -687,11 +657,16 @@ footer {
 
     .hebergements-cards {
         flex-direction: column;
+        gap: 10px;
+        padding: 0;
+        margin-left: -20px;
+        margin-right: -20px;
     }
 
     .hebergements-cards a {
         width: 100%; 
         min-width: 0;
+        align-self center;
     }
     .activites-cards {
         width: 100%;
