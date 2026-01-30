@@ -493,6 +493,10 @@ footer {
 .footer-column a:hover {
     color: var(--main-color);
 }
+/* masquer l'icône loupe sur desktop */
+.search-icon-mobile {
+    display: none;
+}
 
 /* =========================
    TABLETTE (<= 1024px)
@@ -619,6 +623,23 @@ footer {
     .search-input {
         width: 100%;
     }
+    .search-button {
+        padding: 0 10px;
+    }
+    .search-icon-mobile {
+        display: inline-block;
+        color: #fff;
+        font-size: 18px;
+    }
+    .button-text {
+        display: none;
+    }
+    .search-icon-mobile {
+        display: inline-block;
+        color: #fff;
+        font-size: 18px;
+    }
+    
 
     /* Filtres : 2 colonnes en mobile */
     .filter-list {
@@ -639,15 +660,15 @@ footer {
     }
 
     /* Fond gris uniquement sur Populaires en mobile, pleine largeur */
-    .hebergements {
-        background-color: none;
-        padding: 0;
+    .hebergements-and-populaires .hebergements {
+        background-color: transparent !important;
+        padding: 0 !important;
         margin-left: 0;
         margin-right: 0;
         border-radius: 0;
     }
 
-    .populaires {
+    .hebergements-and-populaires .populaires {
         background-color: var(--main-bg-color);
         border-radius: 0;
         width: calc(100% + 40px);
@@ -658,21 +679,31 @@ footer {
 
     .hebergements-cards {
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
         padding: 0;
         margin-left: -20px;
         margin-right: -20px;
     }
 
     .hebergements-cards a {
-        width: 100%; 
+        width: 80%; 
         min-width: 0;
         align-self:center;
     }
     .activites-cards {
-        width: 100%;
+        width: calc(80% + 40px);
+        align-self: center;
         grid-template-columns: 1fr;
         gap: 15px;
+        flex-direction: column;
+        padding: 0;
+        margin: auto;
+    }
+    .card-activite {
+        height: 200px;
+    }
+    .card-activite img {
+        height: 150px;
     }
 
     footer {
