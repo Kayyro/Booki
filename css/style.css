@@ -12,26 +12,16 @@
 }
 
 body {
-  margin: 0;
-}
-
-/* Conteneur principal centré */
-.main-container {
+  margin: auto;
   width: 100%;
   max-width: 1440px;
-  margin: 0 auto;
-}
-
-/* Padding horizontal par section */
-.section-padding {
-  padding: 0 50px;
 }
 
 /* =========================
    HEADER
    ========================= */
 
-header.main-container {
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -262,13 +252,13 @@ header.main-container {
 .hebergements-cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 35px;
 }
 
 /* Largeur de chaque lien/carte */
 .hebergements-cards a {
-  width: calc(33.33% - 20px);
-  min-width: 250px; /* sinon c'est trop petit */
+  width: 30%;
+  height: 210px;
 }
 
 /* Cartes verticales */
@@ -279,10 +269,14 @@ header.main-container {
 }
 
 .hebergements-cards img {
-  height: 124px;
+  height: 100%;
   width: 100%;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+}
+
+.hebergements-cards .card-image {
+  height: 110px;
 }
 
 /* Texte dans les cartes */
@@ -291,11 +285,13 @@ header.main-container {
 }
 
 .hebergements-cards .card-title {
-  margin: 5px 0;
+  margin-top: 0px;
+  margin-bottom: 8px;
 }
 
 .hebergements-cards .card-subtitle {
-  margin: 0 0 8px 0;
+  margin-top: 0px;
+  margin-bottom: 8px;
   font-size: 14px;
 }
 
@@ -442,7 +438,7 @@ header.main-container {
 
 .card-activite img {
   width: 100%;
-  height: 260px;
+  height: 470px;
   object-fit: cover;
   border-radius: 15px 15px 0 0; /* même arrondi haut que les autres cards */
 }
@@ -563,19 +559,20 @@ footer {
     gap: 20px;
   }
   .populaires-cards a {
-    width: 33%; /* Les 3 cartes populaires sur une seule ligne */
+    width: 25%; /* Les 3 cartes populaires sur une seule ligne */
   }
 
   /* Ajustement des espaces pour la tablette */
   .hebergements-cards {
+    display: flex;
+    flex: wrap;
+    height: auto;
     gap: 20px; /* On réduit légèrement l'écart (il était de 30px sur desktop) */
   }
 
   .hebergements-cards a {
-    /* (100% de largeur - 2 espaces de 20px) divisé par 3 cartes */
-    width: calc((100% - 40px) / 3);
-
-    /* C'EST ICI LA CLÉ : on autorise les cartes à être plus petites que 250px */
+    grid-template-columns: repeat(3, 1fr);
+    width: 31%; /* Calcul pour 3 cartes par ligne avec gap de 20px */
     min-width: 160px;
   }
 
@@ -623,6 +620,7 @@ footer {
   .logo {
     height: 19px;
     margin-bottom: 20px;
+    margin-top: 20px;
   }
 
   .nav-links {
@@ -712,6 +710,39 @@ footer {
     margin-right: -20px;
     padding: 20px;
   }
+  
+  .populaires-cards {
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    display: flex;
+    align-items: center;
+  }
+
+  .populaires-cards a {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .populaires-cards .card {
+    flex-direction: row;
+    margin-top: 0;
+  }
+
+  .populaires-cards img {
+    width: 33%;
+    height: 136px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 0;
+  }
+
+  .populaires-cards .card-content {
+    width: 67%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+  }
 
   .hebergements-cards {
     flex-direction: column;
@@ -744,10 +775,8 @@ footer {
 
   footer {
     background-color: var(--main-bg-color);
-    width: calc(100% + 40px);
-    margin-left: -20px;
-    margin-right: -20px;
-    padding: 30px 40px;
+    width: 100%;
+    padding: 20px;
     flex-direction: column;
     gap: 30px;
     margin-top: 60px;
