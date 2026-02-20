@@ -433,7 +433,7 @@ header {
   flex-direction: column;
   height: auto;
   padding: 0px;
-  box-sizing: default;
+  box-sizing: border-box;
 }
 
 .card-activite img {
@@ -579,7 +579,7 @@ footer {
   /* Ajustement des espaces pour la tablette */
   .hebergements-cards {
     display: flex;
-    flex: wrap;
+    flex-wrap: wrap;
     height: auto;
     gap: 20px; /* On réduit légèrement l'écart (il était de 30px sur desktop) */
   }
